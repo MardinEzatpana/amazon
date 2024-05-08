@@ -1,9 +1,34 @@
 import bannerImgOne from "./images/banner/bannerImgOne.webp";
 import bannerImgTwo from "./images/banner/bannerImgTwo.gif";
 import bannerImgThree from "./images/banner/bannerImgThree.webp";
+import saleImgOne from "./images/sale/saleImgOne.webp";
+import saleImgTwo from "./images/sale/saleImgTwo.webp";
+import saleImgThree from "./images/sale/saleImgThree.webp";
+import saleImgFour from "./images/sale/saleImgFour.webp";
+import newArrOne from "./images/products/newArrival/newArrOne.webp";
+import newArrTwo from "./images/products/newArrival/newArrTwo.webp";
+import newArrThree from "./images/products/newArrival/newArrThree.webp";
+import newArrFour from "./images/products/newArrival/newArrFour.webp";
+import newArrFive from "./images/products/newArrival/newArrFive.webp";
+import newArrSix from "./images/products/newArrival/newArrSix.webp";
+import newArrSeven from "./images/products/newArrival/newArrSeven.webp";
+import newArrEight from "./images/products/newArrival/newArrEight.webp";
 
 export {
   bannerImgOne,
   bannerImgTwo,
-  bannerImgThree
+  bannerImgThree,
+  saleImgOne,
+  saleImgTwo,
+  saleImgThree,
+  saleImgFour,
+  newArrOne,
+  newArrTwo,
+  newArrThree,
+  newArrFour,
+  newArrFive,
+  newArrSix,
+  newArrSeven,
+  newArrEight
+
 };
