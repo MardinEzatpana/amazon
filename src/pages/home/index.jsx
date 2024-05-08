@@ -1,6 +1,12 @@
+import Banner from "../../components/Banner/Banner"
+import BannerBottom from "../../components/Banner/BannerBottom"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className="w-full mx-auto">
+      <Banner />
+      <BannerBottom />
+    </div>
   )
 }
 

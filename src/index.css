@@ -20,3 +20,7 @@ nav .active li {
     font-weight: 800;
     text-decoration: 2px underline white;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

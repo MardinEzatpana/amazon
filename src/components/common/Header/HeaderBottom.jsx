@@ -47,12 +47,12 @@ const HeaderBottom = () => {
               type="text"
               placeholder="جستجوی محصولات ..."
             />
-            <FaSearch className="w-5 h-5" />
+            <FaSearch className="w-5 h-5" color="#414040"/>
           </div>
           <div className="flex gap-4 mt-2 lg:mt-0 items-center pl-6 cursor-pointer relative">
           <div onClick={() => setShowUser(!showUser)} className="flex">
-              <FaCaretDown />
-              <FaUser />
+              <FaCaretDown color="#414040"/>
+              <FaUser color="#414040"/>
             </div>
             {showUser && (
               <motion.ul
@@ -78,8 +78,8 @@ const HeaderBottom = () => {
               )}
             <Link to="#">
               <div className="relative">
-                <FaShoppingCart />
-                <span className="absolute font-titleFont top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">
+                <FaShoppingCart color="#414040"/>
+                <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-primeColor text-white">
                   0
                 </span>
               </div>
