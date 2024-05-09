@@ -107,17 +107,17 @@ const Banner = () => {
       <Slider {...settings}>
         <Link to="#">
           <div>
-            <img src={bannerImgOne} className="object-cover min-h-24 lg:min-h-80" alt=""/>
+            <img src={bannerImgOne} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
         <Link to="#">
           <div>
-            <img src={bannerImgTwo} className="object-cover min-h-24 lg:min-h-80" alt=""/>
+            <img src={bannerImgTwo} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
         <Link to="#">
           <div>
-            <img src={bannerImgThree} className="object-cover min-h-24 lg:min-h-80" alt=""/>
+            <img src={bannerImgThree} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
       </Slider>

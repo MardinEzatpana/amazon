@@ -8,30 +8,22 @@ import {
 
 const Sale = () => {
   return (
-    <div className="py-20 flex flex-col md:flex-row items-center justify-between gap-4 lg:gap-10">
-      <div className="w-full md:w-2/3 lg:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
-        <div className="h-1/2 w-full">
+    <div className="pb-10 flex flex-col md:flex-row items-center justify-between gap-4 lg:gap-10">
+      <div className="w-full md:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
           <Link to="#">
-            <img className="h-full w-full object-cover" src={saleImgTwo} />
+            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgOne} />
           </Link>
-        </div>
-        <div className="h-1/2 w-full">
           <Link to="#">
-            <img className="h-full w-full object-cover" src={saleImgFour} />
+            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgFour} />
           </Link>
-        </div>
       </div>
-      <div className="w-full md:w-2/3 lg:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
-        <div className="h-1/2 w-full">
+      <div className="w-full md:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
           <Link to="#">
-            <img className="h-full w-full object-cover" src={saleImgOne} />
+            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgTwo} />
           </Link>
-        </div>
-        <div className="h-1/2 w-full">
           <Link to="#">
-            <img className="h-full w-full object-cover" src={saleImgThree} />
+            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgThree} />
           </Link>
-        </div>
       </div>
     </div>
   );

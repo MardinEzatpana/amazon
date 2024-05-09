@@ -13,6 +13,7 @@ import newArrFive from "./images/products/newArrival/newArrFive.webp";
 import newArrSix from "./images/products/newArrival/newArrSix.webp";
 import newArrSeven from "./images/products/newArrival/newArrSeven.webp";
 import newArrEight from "./images/products/newArrival/newArrEight.webp";
+import paymentCard from "./images/payment.png";
 
 export {
   bannerImgOne,
@@ -29,6 +30,7 @@ export {
   newArrFive,
   newArrSix,
   newArrSeven,
-  newArrEight
+  newArrEight,
+  paymentCard
 
 };

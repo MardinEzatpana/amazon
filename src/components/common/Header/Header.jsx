@@ -30,71 +30,66 @@ const Header = () => {
           <Link to="/">
             <div>
               <img
-                className="hidden md:inline-block mr-8 xl:mr-20 w-16 min-w-16 rounded-xl object-cover"
+                className="w-12 h-6 md:h-10 mr-2 xl:mr-20 md:w-20 min-w-16 rounded-xl object-cover"
                 src="/amazon.png"
               />
             </div>
           </Link>
           <div>
             {showMenu && (
-              <div
-                className="flex justify-between gap-20 items-center w-full px-4 h-full"
-              >
-                  <div className="w-full me-10 md:w-[300px] lg:w-[600px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between ps-6 rounded-xl">
-                    <input
-                      className="h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
-                      type="text"
-                      placeholder="جستجوی محصولات ..."
-                    />
-                    <FaSearch
-                      className="w-12 h-12 rounded-e-xl bg-orange-300 p-3"
-                      color="#414040"
-                    />
+              <div className="flex justify-between gap-20 items-center w-full px-4 h-full">
+                <div className="w-full me-10 md:w-[300px] lg:w-[600px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between ps-6 rounded-xl">
+                  <input
+                    className="h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
+                    type="text"
+                    placeholder="جستجوی محصولات ..."
+                  />
+                  <FaSearch
+                    className="w-12 h-12 rounded-e-xl bg-orange-300 p-3"
+                    color="#414040"
+                  />
+                </div>
+                <div className="flex gap-4 pl-10 items-center cursor-pointer relative">
+                  <div onClick={() => setShowUser(!showUser)} className="flex">
+                    <FaCaretDown color="white" />
+                    <FaUser size={20} color="white" />
                   </div>
-                  <div className="flex gap-4 pl-10 items-center cursor-pointer relative">
-                    <div
-                      onClick={() => setShowUser(!showUser)}
-                      className="flex"
+                  {showUser && (
+                    <motion.ul
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute top-14 -left-2 z-40 bg-gray-100 w-32 h-auto p-4 pb-6"
                     >
-                      <FaCaretDown color="white" />
-                      <FaUser size={20} color="white" />
-                    </div>
-                    {showUser && (
-                      <motion.ul
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute top-12 -left-7 z-40 bg-gray-100 w-32 h-auto p-4 pb-6"
-                      >
-                        <>
+                      <>
                         <Link onClick={() => setShowUser(false)} to="#">
-                            <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
-                              ورود
-                            </li>
-                          </Link>
-                          <Link onClick={() => setShowUser(false)} to="#">
-                            <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
-                              ثبت نام
-                            </li>
-                          </Link>
-                        </>
-                      </motion.ul>
-                    )}
-                    <Link to="#">
-                      <div className="relative">
-                        <FiShoppingCart size={30} color="white" />
-                        <span className="absolute font-titleFont -top-2 right-1 text-md font-bold w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                          0
-                        </span>
-                      </div>
-                    </Link>
+                          <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                            ورود
+                          </li>
+                        </Link>
+                        <Link onClick={() => setShowUser(false)} to="#">
+                          <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
+                            ثبت نام
+                          </li>
+                        </Link>
+                      </>
+                    </motion.ul>
+                  )}
+                  <Link to="#">
+                    <div className="relative">
+                      <FiShoppingCart size={30} color="white" />
+                      <span className="absolute font-titleFont -top-2 right-1 text-md font-bold w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
+                        0
+                      </span>
+                    </div>
+                  </Link>
                 </div>
               </div>
             )}
-            <HiMenuAlt2
-              onClick={() => setSidenav(!sidenav)}
-              className="inline-block md:hidden cursor-pointer w-8 h-6 rounded-md bg-white absolute top-6 right-4"
-            />
+              <HiMenuAlt2
+                onClick={() => setSidenav(!sidenav)}
+                className="md:hidden cursor-pointer w-8 h-6 rounded-md bg-white"
+              />
             {sidenav && (
               <div className="md:hidden fixed top-0 left-0 w-full h-screen bg-black text-gray-200 bg-opacity-95 z-50">
                 <motion.div
@@ -105,60 +100,60 @@ const Header = () => {
                 >
                   <div className="w-full h-full p-6">
                     <img
-                      className="w-14 h-10 mb-6 rounded-full"
+                      className="w-16 h-8 mb-6 rounded-full"
                       src="/amazon.png"
                       alt="logo"
                     />
                     <div className="text-gray-200 flex flex-col gap-2">
-                    <div className="relative w-full min-w-[260px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between ps-6 rounded-xl">
-                    <input
-                      className="flex-1 h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
-                      type="text"
-                      placeholder="جستجوی محصولات ..."
-                    />
-                    <FaSearch
-                      className="w-12 min-w-10 h-12 rounded-e-xl bg-orange-300 p-3"
-                      color="#414040"
-                    />
-                  </div>
-                  <div className="flex gap-4 mt-4 items-center cursor-pointer relative">
-                    <div
-                      onClick={() => setShowUser(!showUser)}
-                      className="flex"
-                    >
-                      <FaCaretDown color="white" />
-                      <FaUser color="white" />
-                    </div>
-                    {showUser && (
-                      <motion.ul
-                        initial={{ y: 30, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute top-16 z-40 bg-gray-100 w-32 text-white h-auto p-4 pb-6"
-                      >
-                        <>
-                          <Link onClick={() => setShowUser(false)} to="#">
-                            <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
-                              ورود
-                            </li>
-                          </Link>
-                          <Link onClick={() => setShowUser(false)} to="#">
-                            <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
-                              ثبت نام
-                            </li>
-                          </Link>
-                        </>
-                      </motion.ul>
-                    )}
-                    <Link to="#">
-                      <div className="relative">
-                        <FaShoppingCart color="white" />
-                        <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                          0
-                        </span>
+                      <div className="relative w-full min-w-[260px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between ps-6 rounded-xl">
+                        <input
+                          className="flex-1 h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
+                          type="text"
+                          placeholder="جستجوی محصولات ..."
+                        />
+                        <FaSearch
+                          className="w-12 min-w-10 h-12 rounded-e-xl bg-orange-300 p-3"
+                          color="#414040"
+                        />
                       </div>
-                    </Link>
-                  </div>
+                      <div className="flex gap-4 mt-4 items-center cursor-pointer relative">
+                        <div
+                          onClick={() => setShowUser(!showUser)}
+                          className="flex"
+                        >
+                          <FaCaretDown color="white" />
+                          <FaUser color="white" />
+                        </div>
+                        {showUser && (
+                          <motion.ul
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute top-16 z-40 bg-gray-100 w-32 text-white h-auto p-4 pb-6"
+                          >
+                            <>
+                              <Link onClick={() => setShowUser(false)} to="#">
+                                <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                                  ورود
+                                </li>
+                              </Link>
+                              <Link onClick={() => setShowUser(false)} to="#">
+                                <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
+                                  ثبت نام
+                                </li>
+                              </Link>
+                            </>
+                          </motion.ul>
+                        )}
+                        <Link to="#">
+                          <div className="relative">
+                            <FaShoppingCart color="white" />
+                            <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
+                              0
+                            </span>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
                     <div className="mt-4">
                       <h1
