@@ -18,6 +18,8 @@ import bestSellerOne from "./images/products/bestSeller/bestSellerOne.webp";
 import bestSellerTwo from "./images/products/bestSeller/bestSellerTwo.webp";
 import bestSellerThree from "./images/products/bestSeller/bestSellerThree.webp";
 import bestSellerFour from "./images/products/bestSeller/bestSellerFour.webp";
+import productOfTheYear1 from "./images/products/yearProducts/productOfTheYear1.webp";
+import productOfTheYear2 from "./images/products/yearProducts/productOfTheYear2.webp";
 
 export {
   bannerImgOne,
@@ -39,6 +41,8 @@ export {
   bestSellerOne,
   bestSellerTwo,
   bestSellerThree,
-  bestSellerFour
+  bestSellerFour,
+  productOfTheYear1,
+  productOfTheYear2
 
 };
