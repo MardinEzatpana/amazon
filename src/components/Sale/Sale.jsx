@@ -8,23 +8,19 @@ import {
 
 const Sale = () => {
   return (
-    <div className="pb-10 flex flex-col md:flex-row items-center justify-between gap-4 lg:gap-10">
-      <div className="w-full md:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
+    <div className="w-full pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <Link to="#">
-            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgOne} />
+            <img className="max-h-96 xl:max-h-full w-full object-cover" src={saleImgOne} />
           </Link>
           <Link to="#">
-            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgFour} />
-          </Link>
-      </div>
-      <div className="w-full md:w-1/2 h-auto flex flex-col gap-4 lg:gap-10">
-          <Link to="#">
-            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgTwo} />
+            <img className="max-h-96 xl:max-h-full w-full object-cover" src={saleImgFour} />
           </Link>
           <Link to="#">
-            <img className="max-h-80 md:max-h-full w-full object-cover" src={saleImgThree} />
+            <img className="max-h-96 xl:max-h-full w-full object-cover" src={saleImgTwo} />
           </Link>
-      </div>
+          <Link to="#">
+            <img className="max-h-96 xl:max-h-full w-full object-cover" src={saleImgThree} />
+          </Link>
     </div>
   );
 };

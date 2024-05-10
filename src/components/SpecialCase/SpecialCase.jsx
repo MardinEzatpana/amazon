@@ -4,7 +4,7 @@ import { MdSwitchAccount } from "react-icons/md";
 
 const SpecialCase = () => {
   return (
-    <div className="fixed top-52 left-2 z-20 hidden lg:flex flex-col gap-2">
+    <div className="fixed top-52 xl:top-60 left-2 z-20 hidden lg:flex flex-col gap-2">
       <Link to="#">
         <div className="bg-[#232f3e] w-16 h-[70px] rounded-md flex flex-col gap-1 text-white justify-center items-center shadow-sm shadow-gray-400 overflow-x-hidden group cursor-pointer">
           <div className="flex justify-center items-center">

@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner"
 import BannerBottom from "../../components/Banner/BannerBottom"
+import BestSellers from "../../components/BestSellers/BestSellers"
 import NewArrivals from "../../components/NewArrivals/NewArrivals"
 import Sale from "../../components/Sale/Sale"
 
@@ -11,6 +12,7 @@ const Home = () => {
       <div className="max-w-container mx-auto px-4">
         <Sale />
         <NewArrivals />
+        <BestSellers />
       </div>
     </div>
   )

@@ -29,12 +29,12 @@ const Footer = () => {
   };
   return (
     <div className="w-full bg-[#232f3e] py-10">
-      <div className="max-w-container grid grid-cols-1 md:grid-cols-2  xl:grid-cols-6 px-4 gap-10">
+      <div className="max-w-container grid grid-cols-1 md:grid-cols-2  lg:grid-cols-6 px-4 gap-10">
         <div className="col-span-2">
         <Link to="/">
             <div>
               <img
-                className="mr-2 xl:mr-20 -mt-3 w-20 min-w-16 rounded-xl object-cover"
+                className="mr-0 xl:mr-20 -mt-3 w-20 min-w-16 rounded-xl object-cover"
                 src="/amazon.png"
               />
             </div>

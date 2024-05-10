@@ -14,6 +14,10 @@ import newArrSix from "./images/products/newArrival/newArrSix.webp";
 import newArrSeven from "./images/products/newArrival/newArrSeven.webp";
 import newArrEight from "./images/products/newArrival/newArrEight.webp";
 import paymentCard from "./images/payment.png";
+import bestSellerOne from "./images/products/bestSeller/bestSellerOne.webp";
+import bestSellerTwo from "./images/products/bestSeller/bestSellerTwo.webp";
+import bestSellerThree from "./images/products/bestSeller/bestSellerThree.webp";
+import bestSellerFour from "./images/products/bestSeller/bestSellerFour.webp";
 
 export {
   bannerImgOne,
@@ -31,6 +35,10 @@ export {
   newArrSix,
   newArrSeven,
   newArrEight,
-  paymentCard
+  paymentCard,
+  bestSellerOne,
+  bestSellerTwo,
+  bestSellerThree,
+  bestSellerFour
 
 };
