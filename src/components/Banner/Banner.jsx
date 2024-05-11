@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Slider from "react-slick";
 import {
   bannerImgOne,
@@ -9,6 +9,7 @@ import {
 
 const Banner = () => {
   const [dotActive, setDocActive] = useState(0);
+  const location = useLocation();
   const settings = {
     dots: true,
     infinite: true,
@@ -105,17 +106,17 @@ const Banner = () => {
   return (
     <div className="w-full bg-white">
       <Slider {...settings}>
-        <Link to="#">
+        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgOne} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
-        <Link to="#">
+        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgTwo} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
-        <Link to="#">
+        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgThree} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
