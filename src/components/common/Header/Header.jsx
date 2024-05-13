@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [showUser, setShowUser] = useState(false);
   const [sidenav, setSidenav] = useState(false);
   const [category, setCategory] = useState(false);
+  const location = useLocation();
+  const products = useSelector((state) => state.cart.products);
   useEffect(() => {
     let ResponsiveMenu = () => {
       if (window.innerWidth < 667) {
@@ -75,11 +78,11 @@ const Header = () => {
                       </>
                     </motion.ul>
                   )}
-                  <Link to="#">
+                  <Link to="/cart" state={{ data: location.pathname.split("/")[1] }}>
                     <div className="relative">
                       <FiShoppingCart size={30} color="white" />
                       <span className="absolute font-titleFont -top-2 right-1 text-md font-bold w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                        0
+                      {products.length > 0 ? products.length : 0}
                       </span>
                     </div>
                   </Link>
@@ -145,11 +148,11 @@ const Header = () => {
                             </>
                           </motion.ul>
                         )}
-                        <Link to="#">
+                        <Link to="/cart" state={{ data: location.pathname.split("/")[1] }}>
                           <div className="relative">
                             <FaShoppingCart color="white" />
                             <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                              0
+                            {products.length > 0 ? products.length : 0}
                             </span>
                           </div>
                         </Link>

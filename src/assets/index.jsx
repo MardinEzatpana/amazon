@@ -24,6 +24,8 @@ import spfOne from "./images/products/specialOffer/spfOne.webp";
 import spfTwo from "./images/products/specialOffer/spfTwo.webp";
 import spfThree from "./images/products/specialOffer/spfThree.webp";
 import spfFour from "./images/products/specialOffer/spfFour.webp";
+import emptyCart from "./emptyCart.png";
+
 
 export {
   bannerImgOne,
@@ -51,6 +53,7 @@ export {
   spfOne,
   spfTwo,
   spfThree,
-  spfFour
+  spfFour,
+  emptyCart
 
 };
