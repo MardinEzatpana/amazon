@@ -5,8 +5,24 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import Badge from "./Badge";
 import BadgeOff from "./BadgeOff";
+import { useNavigate } from "react-router-dom";
 
 const Product = (props) => {
+  const _id = props._id;
+  const idString = (_id) => {
+    return String(_id).toLowerCase().split(" ").join("");
+  };
+  const rootId = idString(_id);
+
+  const navigate = useNavigate();
+  const productItem = props;
+  const handleProductDetails = () => {
+    navigate(`/product/${rootId}`, {
+      state: {
+        item: productItem,
+      },
+    });
+  };
   return (
     <div className="w-full relative group">
       <div className="max-w-full max-h-80 relative overflow-y-hidden">
@@ -30,7 +46,9 @@ const Product = (props) => {
                 <FaShoppingCart />
               </span>
             </li>
-            <li className="text-[#767676] hover:text-primeColor text-sm font-normal border-b-[1px] border-b-gray-200 hover:border-b-primeColor flex items-center justify-end gap-2 hover:cursor-pointer pb-1 duration-300 w-full">
+            <li
+            onClick={handleProductDetails}
+            className="text-[#767676] hover:text-primeColor text-sm font-normal border-b-[1px] border-b-gray-200 hover:border-b-primeColor flex items-center justify-end gap-2 hover:cursor-pointer pb-1 duration-300 w-full">
               دیدن جزئیات
               <span className="text-lg">
                 <MdOutlineLabelImportant />
