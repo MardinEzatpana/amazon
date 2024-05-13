@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import { FaFacebook, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 import FooterListTitle from "./FooterListTitle";
 import { paymentCard } from "../../../assets";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const [emailInfo, setEmailInfo] = useState("");
   const [subscription, setSubscription] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const location = useLocation();
 
   const emailValidation = () => {
     return String(emailInfo)
@@ -94,9 +95,11 @@ const Footer = () => {
         <div className="col-span-2 md:col-span-1">
           <FooterListTitle title="درباره ما بیشتر بدانید" />
           <ul className="flex flex-col gap-2">
+          <Link to="/about" state={{ data: location.pathname.split("/")[1] }}>
             <li className="font-titleFont text-base text-gray-200 hover:text-white hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
               درباره ما
             </li>
+            </Link>
             <li className="font-titleFont text-base text-gray-200 hover:text-white hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
               تماس با ما
             </li>

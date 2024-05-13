@@ -67,7 +67,7 @@ const Banner = () => {
               style={{
                 position: "absolute",
                 top: "50%",
-                left: "2%",
+                right: "2%",
                 transform: "translateY(-50%)",
               }}
             >
@@ -106,17 +106,17 @@ const Banner = () => {
   return (
     <div className="w-full bg-white">
       <Slider {...settings}>
-        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
+        <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgOne} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
-        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
+        <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgTwo} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>
         </Link>
-        <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
+        <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
           <div>
             <img src={bannerImgThree} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
           </div>

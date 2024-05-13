@@ -148,7 +148,7 @@ const Header = () => {
                             </>
                           </motion.ul>
                         )}
-                        <Link to="/cart" state={{ data: location.pathname.split("/")[1] }}>
+                        <Link to="/cart" state={{ data: location.pathname.split("/")[1] }} onClick={() => setSidenav(false)}>
                           <div className="relative">
                             <FaShoppingCart color="white" />
                             <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
