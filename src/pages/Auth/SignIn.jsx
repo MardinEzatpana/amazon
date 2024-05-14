@@ -4,6 +4,7 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../redux/slices/authSlice";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -38,20 +39,23 @@ const SignIn = () => {
       setValues({ ...values, errEmail: "ایمیل خود را وارد کنید" });
     } else {
       if (!EmailValidation(values.email)) {
-        setValues({ ...values, errEmail: "یک ایمیل معتبر وارد کنید" });
-      }
+        setValues({ ...values, errEmail: " ایمیل معتبر وارد کنید" });
+      } else{
+        if (!values.password) {
+          setValues({ ...values, errPassword: "رمز عبور ایجاد کنید" });
+        } else {
+          if (values.password.length < 6) {
+            setValues({
+              ...values,
+              errPassword: "رمز عبور باید حداقل 6 کاراکتر باشد",
+            });
+          }
+        } 
+      } 
     }
 
-    if (!values.password) {
-      setValues({ ...values, errPassword: "رمز عبور ایجاد کنید" });
-    } else {
-      if (values.password.length < 6) {
-        setValues({
-          ...values,
-          errPassword: "رمز عبور باید حداقل 6 کاراکتر باشد",
-        });
-      }
-    }
+
+    
 
     if (
       values.email &&
@@ -63,6 +67,7 @@ const SignIn = () => {
       setValues({ ...values, password: "" });
       dispatch(login(values));
       navigate("/");
+      toast.success("شما با موفقیت وارد شدید", { icon: "🚀" });
       console.log(values);
     }
   };
@@ -147,7 +152,7 @@ const SignIn = () => {
             </h1>
             <div className="flex flex-col gap-3">
               {/* Email */}
-              <div className="flex flex-col gap-.5">
+              <div className="flex flex-col gap-1">
                 <p className="font-titleFont text-base font-semibold text-gray-600">
                 ایمیل
                 </p>
@@ -160,14 +165,14 @@ const SignIn = () => {
                 />
                 {values.errEmail && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {values.errEmail}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
 
               {/* Password */}
-              <div className="flex flex-col gap-.5">
+              <div className="flex flex-col gap-1">
                 <p className="font-titleFont text-base font-semibold text-gray-600">
                   رمز عبور
                 </p>
@@ -180,8 +185,8 @@ const SignIn = () => {
                 />
                 {values.errPassword && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {values.errPassword}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>

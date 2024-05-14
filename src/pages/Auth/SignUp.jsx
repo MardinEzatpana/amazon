@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -67,35 +68,42 @@ const SignUp = () => {
     if (checked) {
       if (!clientName) {
         setErrClientName("اسم خود را وارد کنید");
-      }
-      if (!email) {
-        setErrEmail("ایمیل رو وارد کنید");
       } else {
-        if (!EmailValidation(email)) {
-          setErrEmail("یک ایمیل معتبر وارد کنید");
+        if (!email) {
+          setErrEmail("ایمیل رو وارد کنید");
+        } else {
+          if (!EmailValidation(email)) {
+            setErrEmail("یک ایمیل معتبر وارد کنید");
+          } else {
+            if (!phone) {
+              setErrPhone("شماره تلفن خود را وارد کنید");
+            } else {
+              if (!password) {
+                setErrPassword("رمز عبور ایجاد کنید");
+              } else {
+                if (password.length < 6) {
+                  setErrPassword("رمز عبور باید حداقل 6 کاراکتر باشد");
+                } else {
+                  if (!address) {
+                    setErrAddress("آدرس خود را وارد کنید");
+                  } else {
+                    if (!city) {
+                      setErrCity("نام شهر خود را وارد کنید");
+                    } else {
+                      if (!country) {
+                        setErrCountry("کشوری که در آن ساکن هستید را وارد کنید");
+                      } else {
+                        if (!zip) {
+                          setErrZip("کد پستی منطقه خود را وارد کنید");
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
-      }
-      if (!phone) {
-        setErrPhone("شماره تلفن خود را وارد کنید");
-      }
-      if (!password) {
-        setErrPassword("رمز عبور ایجاد کنید");
-      } else {
-        if (password.length < 6) {
-          setErrPassword("رمز عبور باید حداقل 6 کاراکتر باشد");
-        }
-      }
-      if (!address) {
-        setErrAddress("آدرس خود را وارد کنید");
-      }
-      if (!city) {
-        setErrCity("نام شهر خود را وارد کنید");
-      }
-      if (!country) {
-        setErrCountry("کشوری که در آن ساکن هستید را وارد کنید");
-      }
-      if (!zip) {
-        setErrZip("کد پستی منطقه خود را وارد کنید");
       }
 
       if (
@@ -118,6 +126,7 @@ const SignUp = () => {
         setCountry("");
         setZip("");
         navigate("/signin");
+        toast.success("ثبت نام با موفقیت انجام شد", { icon: "🚀" });
       }
     }
   };
@@ -198,7 +207,7 @@ const SignUp = () => {
               <h1 className="text-3xl font-bold text-center">Amazon</h1>
             </Link>
             <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-            ثبت نام
+              ثبت نام
             </h1>
             <div className="flex flex-col gap-3">
               {/* client name */}
@@ -214,8 +223,8 @@ const SignUp = () => {
                 />
                 {errClientName && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errClientName}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -232,8 +241,8 @@ const SignUp = () => {
                 />
                 {errEmail && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errEmail}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -250,8 +259,8 @@ const SignUp = () => {
                 />
                 {errPhone && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errPhone}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -268,8 +277,8 @@ const SignUp = () => {
                 />
                 {errPassword && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errPassword}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -286,8 +295,8 @@ const SignUp = () => {
                 />
                 {errAddress && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errAddress}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -304,8 +313,8 @@ const SignUp = () => {
                 />
                 {errCity && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errCity}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -322,8 +331,8 @@ const SignUp = () => {
                 />
                 {errCountry && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errCountry}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>
@@ -340,8 +349,8 @@ const SignUp = () => {
                 />
                 {errZip && (
                   <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                    <span className="font-bold italic mr-1">!</span>
                     {errZip}
+                    <span className="font-bold italic mr-1">!</span>
                   </p>
                 )}
               </div>

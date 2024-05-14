@@ -9,7 +9,7 @@ import {
 const Sale = () => {
   const location = useLocation();
   return (
-    <div className="w-full pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="w-full pb-20 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <Link to="/shop" state={{ data: location.pathname.split("/")[1] }}>
             <img className="max-h-96 xl:max-h-full w-full object-cover" src={saleImgOne} />
           </Link>

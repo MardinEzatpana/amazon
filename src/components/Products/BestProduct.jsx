@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BestProduct = (props) => {
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="w-full flex flex-col md:flex-row items-center justify-center">
       <div className="max-w-40 lg:max-w-80 max-h-40 lg:max-h-80 relative overflow-y-hidden">
         <Link to="#">
           <img
@@ -15,7 +15,7 @@ const BestProduct = (props) => {
       </div> 
       <div
         dir="rtl"
-        className="max-w-80 max-h-16 lg:max-h-24 py-3 flex flex-col gap-1 border-[1px] border-r-0 px-4"
+        className="max-w-80 max-h-16 lg:max-h-24 py-3 flex flex-col gap-1 border-[1px] border-t-0 md:border-t-[1px] md:border-r-0 px-4"
       >
         <h2 className="text-sm text-primeColor font-bold">
           {props.productName}

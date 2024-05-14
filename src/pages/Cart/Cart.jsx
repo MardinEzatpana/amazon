@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import { resetCart } from "../../redux/slices/cartSlice";
+import { checkout, resetCart } from "../../redux/slices/cartSlice";
 import { emptyCart } from "../../assets";
 import ItemCard from "./ItemCard";
 
@@ -98,7 +98,7 @@ const Cart = () => {
               </div>
               <div className="flex justify-end">
                 <Link to="/">
-                  <button onClick={() => dispatch(resetCart())}
+                  <button onClick={() => dispatch(checkout())}
                    className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300">
                     انتقال به صفحه پرداخت
                   </button>

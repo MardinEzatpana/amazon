@@ -1,8 +1,11 @@
 import bannerImgOne from "./images/banner/bannerImgOne.webp";
 import bannerImgTwo from "./images/banner/bannerImgTwo.gif";
 import bannerImgThree from "./images/banner/bannerImgThree.webp";
+import bannerImgOneMobile from "./images/banner/bannerImgOneMobile.webp";
+import bannerImgTwoMobile from "./images/banner/bannerImgTwoMobile.gif";
+import bannerImgThreeMobile from "./images/banner/bannerImgThreeMobile.webp";
 import saleImgOne from "./images/sale/saleImgOne.webp";
-import saleImgTwo from "./images/sale/saleImgTwo.webp";
+import saleImgTwo from "./images/sale/saleImgTwo.gif";
 import saleImgThree from "./images/sale/saleImgThree.webp";
 import saleImgFour from "./images/sale/saleImgFour.webp";
 import newArrOne from "./images/products/newArrival/newArrOne.webp";
@@ -20,6 +23,8 @@ import bestSellerThree from "./images/products/bestSeller/bestSellerThree.webp";
 import bestSellerFour from "./images/products/bestSeller/bestSellerFour.webp";
 import productOfTheYear1 from "./images/products/yearProducts/productOfTheYear1.webp";
 import productOfTheYear2 from "./images/products/yearProducts/productOfTheYear2.webp";
+import productOfTheYear3 from "./images/products/yearProducts/productOfTheYear3.webp";
+import productOfTheYear4 from "./images/products/yearProducts/productOfTheYear4.webp";
 import spfOne from "./images/products/specialOffer/spfOne.webp";
 import spfTwo from "./images/products/specialOffer/spfTwo.webp";
 import spfThree from "./images/products/specialOffer/spfThree.webp";
@@ -29,8 +34,11 @@ import emptyCart from "./emptyCart.png";
 
 export {
   bannerImgOne,
+  bannerImgOneMobile,
   bannerImgTwo,
+  bannerImgTwoMobile,
   bannerImgThree,
+  bannerImgThreeMobile,
   saleImgOne,
   saleImgTwo,
   saleImgThree,
@@ -50,6 +58,8 @@ export {
   bestSellerFour,
   productOfTheYear1,
   productOfTheYear2,
+  productOfTheYear3,
+  productOfTheYear4,
   spfOne,
   spfTwo,
   spfThree,

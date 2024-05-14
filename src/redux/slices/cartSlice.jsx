@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const initialState = {
   products: JSON.parse(sessionStorage.getItem("cart")) || [],
@@ -16,6 +17,7 @@ export const cartSlice = createSlice({
         item.quantity += action.payload.quantity;
       } else {
         state.products.push(action.payload);
+        toast.success("محصول به سبد خرید اضافه شد", { icon: "🚀" });
       }
       sessionStorage.setItem("cart", JSON.stringify(state.products));
     },
@@ -43,12 +45,19 @@ export const cartSlice = createSlice({
       state.products = state.products.filter(
         (item) => item._id !== action.payload
       );
+      toast.error("محصول از سبد خرید حذف شد", { icon: "💣" });
       sessionStorage.setItem("cart", JSON.stringify(state.products));
     },
     resetCart: (state) => {
       state.products = [];
       sessionStorage.setItem("cart", JSON.stringify(state.products));
+      toast.error("کل محصولات از سبد خرید حذف شدن", { icon: "💣" });
     },
+    checkout: (state) => {
+      state.products = [];
+      sessionStorage.setItem("cart", JSON.stringify(state.products));
+      toast.success("پرداخت شما با موفقیت انجام شد", { icon: "🚀" });
+    }
   },
 });
 
@@ -58,5 +67,6 @@ export const {
   drecreaseQuantity,
   deleteItem,
   resetCart,
+  checkout
 } = cartSlice.actions;
 export default cartSlice.reducer;

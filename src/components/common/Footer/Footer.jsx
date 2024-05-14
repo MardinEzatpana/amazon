@@ -100,9 +100,11 @@ const Footer = () => {
               درباره ما
             </li>
             </Link>
+            <Link to="/contact" state={{ data: location.pathname.split("/")[1] }}>
             <li className="font-titleFont text-base text-gray-200 hover:text-white hover:underline decoration-[1px] decoration-gray-500 underline-offset-2 cursor-pointer duration-300">
               تماس با ما
             </li>
+            </Link>
           </ul>
         </div>
         <div className="col-span-2 flex flex-col items-center w-full px-4">

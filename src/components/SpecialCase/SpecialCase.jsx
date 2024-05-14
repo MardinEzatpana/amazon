@@ -14,7 +14,7 @@ const SpecialCase = () => {
     dispatch(logout());
   };
   return (
-    <div className="fixed top-36 md:top-40 lg:top-52 xl:top-60 left-2 z-20 flex flex-col gap-2">
+    <div className="fixed top-52 xl:top-60 left-2 z-20 flex flex-col gap-2">
       {user.authUser ? (
         <>
           <Link onClick={handleSignOut} to="/">

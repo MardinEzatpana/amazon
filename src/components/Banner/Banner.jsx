@@ -5,6 +5,9 @@ import {
   bannerImgOne,
   bannerImgTwo,
   bannerImgThree,
+  bannerImgOneMobile,
+  bannerImgTwoMobile,
+  bannerImgThreeMobile,
 } from "../../assets";
 
 const Banner = () => {
@@ -53,9 +56,7 @@ const Banner = () => {
                 cursor: "pointer",
               }
         }
-      >
-        
-      </div>
+      ></div>
     ),
     responsive: [
       {
@@ -95,9 +96,7 @@ const Banner = () => {
                       fontSize: "12px",
                     }
               }
-            >
-             
-            </div>
+            ></div>
           ),
         },
       },
@@ -107,18 +106,51 @@ const Banner = () => {
     <div className="w-full bg-white">
       <Slider {...settings}>
         <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
-          <div>
-            <img src={bannerImgOne} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
+          <div className="hidden md:inline-block">
+            <img
+              src={bannerImgOne}
+              className="object-cover min-h-60 lg:min-h-80 xl:min-h-96"
+              alt=""
+            />
+          </div>
+          <div className="inline-block md:hidden">
+            <img
+              src={bannerImgOneMobile}
+              className="object-cover min-h-60"
+              alt=""
+            />
           </div>
         </Link>
         <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
-          <div>
-            <img src={bannerImgTwo} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
+          <div className="hidden md:inline-block">
+            <img
+              src={bannerImgTwo}
+              className="object-cover min-h-60 lg:min-h-80 xl:min-h-96"
+              alt=""
+            />
+          </div>
+          <div className="inline-block md:hidden">
+            <img
+              src={bannerImgTwoMobile}
+              className="object-cover min-h-60"
+              alt=""
+            />
           </div>
         </Link>
         <Link to="/offer" state={{ data: location.pathname.split("/")[1] }}>
-          <div>
-            <img src={bannerImgThree} className="object-cover min-h-28 md:min-h-60 lg:min-h-80 xl:min-h-96" alt=""/>
+          <div className="hidden md:inline-block">
+            <img
+              src={bannerImgThree}
+              className="object-cover min-h-60 lg:min-h-80 xl:min-h-96"
+              alt=""
+            />
+          </div>
+          <div className="inline-block md:hidden">
+            <img
+              src={bannerImgThreeMobile}
+              className="object-cover min-h-60"
+              alt=""
+            />
           </div>
         </Link>
       </Slider>
