@@ -5,7 +5,8 @@ import { FiShoppingCart } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/slices/authSlice";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -14,6 +15,9 @@ const Header = () => {
   const [category, setCategory] = useState(false);
   const location = useLocation();
   const products = useSelector((state) => state.cart.products);
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     let ResponsiveMenu = () => {
       if (window.innerWidth < 667) {
@@ -25,6 +29,11 @@ const Header = () => {
     ResponsiveMenu();
     window.addEventListener("resize", ResponsiveMenu);
   }, []);
+
+  const handleSignOut = () => {
+    dispatch(logout());
+    setShowUser(false);
+  };
 
   return (
     <div className="w-full h-20 bg-[#131921] sticky top-0 z-50 border-b-[1px] border-b-white">
@@ -62,37 +71,55 @@ const Header = () => {
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.5 }}
-                      className="absolute top-14 -left-2 z-40 bg-gray-100 w-32 h-auto p-4 pb-6"
+                      className="absolute top-14 -left-4 z-40 bg-gray-100 w-44 h-auto p-4 pb-6"
                     >
-                      <>
-                        <Link onClick={() => setShowUser(false)} to="#">
-                          <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
-                            ورود
-                          </li>
-                        </Link>
-                        <Link onClick={() => setShowUser(false)} to="#">
-                          <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
-                            ثبت نام
-                          </li>
-                        </Link>
-                      </>
+                      {user.authUser ? (
+                        <>
+                          <Link onClick={() => setShowUser(false)} to="/">
+                            <li className="text-gray-400 pl-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                              {user.email}
+                            </li>
+                          </Link>
+                          <Link onClick={handleSignOut} to="/">
+                            <li className="text-gray-400 pr-12 py- hover:text-red-500 duration-300 cursor-pointer">
+                              خروج
+                            </li>
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          <Link onClick={() => setShowUser(false)} to="/signin">
+                            <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                              ورود
+                            </li>
+                          </Link>
+                          <Link onClick={() => setShowUser(false)} to="/signup">
+                            <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
+                              ثبت نام
+                            </li>
+                          </Link>
+                        </>
+                      )}
                     </motion.ul>
                   )}
-                  <Link to="/cart" state={{ data: location.pathname.split("/")[1] }}>
+                  <Link
+                    to="/cart"
+                    state={{ data: location.pathname.split("/")[1] }}
+                  >
                     <div className="relative">
                       <FiShoppingCart size={30} color="white" />
                       <span className="absolute font-titleFont -top-2 right-1 text-md font-bold w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                      {products.length > 0 ? products.length : 0}
+                        {products.length > 0 ? products.length : 0}
                       </span>
                     </div>
                   </Link>
                 </div>
               </div>
             )}
-              <HiMenuAlt2
-                onClick={() => setSidenav(!sidenav)}
-                className="md:hidden cursor-pointer w-8 h-6 rounded-md bg-white"
-              />
+            <HiMenuAlt2
+              onClick={() => setSidenav(!sidenav)}
+              className="md:hidden cursor-pointer w-8 h-6 rounded-md bg-white"
+            />
             {sidenav && (
               <div className="md:hidden fixed top-0 left-0 w-full h-screen bg-black text-gray-200 bg-opacity-95 z-50">
                 <motion.div
@@ -132,27 +159,52 @@ const Header = () => {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.5 }}
-                            className="absolute top-16 z-40 bg-gray-100 w-32 text-white h-auto p-4 pb-6"
+                            className="absolute top-16 z-40 bg-gray-100 w-44 text-white h-auto p-4 pb-6"
                           >
-                            <>
-                              <Link onClick={() => setShowUser(false)} to="#">
-                                <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
-                                  ورود
-                                </li>
-                              </Link>
-                              <Link onClick={() => setShowUser(false)} to="#">
-                                <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
-                                  ثبت نام
-                                </li>
-                              </Link>
-                            </>
+                            {user.authUser ? (
+                              <>
+                                <Link onClick={() => setSidenav(false)} to="/">
+                                  <li className="text-gray-400 pl-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                                    {user.email}
+                                  </li>
+                                </Link>
+                                <Link onClick={handleSignOut} to="/">
+                                  <li className="text-gray-400 pr-12 py- hover:text-red-500 duration-300 cursor-pointer">
+                                    خروج
+                                  </li>
+                                </Link>
+                              </>
+                            ) : (
+                              <>
+                                <Link
+                                  onClick={() => setShowUser(false)}
+                                  to="/signin"
+                                >
+                                  <li className="text-gray-600 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-black hover:text-black duration-300 cursor-pointer">
+                                    ورود
+                                  </li>
+                                </Link>
+                                <Link
+                                  onClick={() => setShowUser(false)}
+                                  to="/signup"
+                                >
+                                  <li className="text-gray-600 px-4 py-1 hover:text-black duration-300 cursor-pointer">
+                                    ثبت نام
+                                  </li>
+                                </Link>
+                              </>
+                            )}
                           </motion.ul>
                         )}
-                        <Link to="/cart" state={{ data: location.pathname.split("/")[1] }} onClick={() => setSidenav(false)}>
+                        <Link
+                          to="/cart"
+                          state={{ data: location.pathname.split("/")[1] }}
+                          onClick={() => setSidenav(false)}
+                        >
                           <div className="relative">
                             <FaShoppingCart color="white" />
                             <span className="absolute font-titleFont -top-3 -right-2 text-xs w-4 h-4 flex items-center justify-center rounded-full bg-transparent text-orange-400">
-                            {products.length > 0 ? products.length : 0}
+                              {products.length > 0 ? products.length : 0}
                             </span>
                           </div>
                         </Link>
