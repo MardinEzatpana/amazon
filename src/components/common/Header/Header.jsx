@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
@@ -7,6 +7,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/slices/authSlice";
+import { searchProducts } from "../../../constants";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -17,6 +18,10 @@ const Header = () => {
   const products = useSelector((state) => state.cart.products);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [, setShowSearchBar] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let ResponsiveMenu = () => {
@@ -32,8 +37,19 @@ const Header = () => {
 
   const handleSignOut = () => {
     dispatch(logout());
-    setShowUser(false);
+    setSidenav(false);
   };
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    const filtered = searchProducts.filter((item) =>
+      item.productName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [searchQuery]);
 
   return (
     <div className="w-full h-20 bg-[#131921] sticky top-0 z-50 border-b-[1px] border-b-white">
@@ -54,12 +70,56 @@ const Header = () => {
                   <input
                     className="h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
                     type="text"
+                    onChange={handleSearch}
+                    value={searchQuery}
                     placeholder="جستجوی محصولات ..."
                   />
                   <FaSearch
                     className="w-12 h-12 rounded-e-xl bg-orange-300 p-3"
                     color="#414040"
                   />
+                  {searchQuery && (
+                    <div
+                      className={`w-[350px] mx-auto h-96 bg-white top-20 absolute right-[20%] lg:right-[40%] z-50 overflow-y-scroll shadow-2xl cursor-pointer`}
+                    >
+                      {searchQuery &&
+                        filteredProducts.map((item) => (
+                          <div
+                            onClick={() =>
+                              navigate(
+                                `/product/${item._id}`,
+                                {
+                                  state: {
+                                    item: item,
+                                  },
+                                }
+                              ) &
+                              setShowSearchBar(true) &
+                              setSearchQuery("")
+                            }
+                            key={item._id}
+                            className="max-w-[300px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
+                          >
+                            <img
+                              className="w-24"
+                              src={item.img}
+                              alt="productImg"
+                            />
+                            <div className="flex flex-col gap-1">
+                              <p className="font-semibold text-lg">
+                                {item.productName}
+                              </p>
+                              <p className="text-sm">
+                                قیمت:{" "}
+                                <span className="text-primeColor font-semibold">
+                                  {item.price}{" "}تومان
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  )}
                 </div>
                 <div className="flex gap-4 pl-10 items-center cursor-pointer relative">
                   <div onClick={() => setShowUser(!showUser)} className="flex">
@@ -139,12 +199,57 @@ const Header = () => {
                         <input
                           className="flex-1 h-full outline-none placeholder:text-[#C4C4C4] placeholder:text-[14px]"
                           type="text"
+                          onChange={handleSearch}
+                          value={searchQuery}
                           placeholder="جستجوی محصولات ..."
                         />
                         <FaSearch
                           className="w-12 min-w-10 h-12 rounded-e-xl bg-orange-300 p-3"
                           color="#414040"
                         />
+                        {searchQuery && (
+                          <div
+                            className={`w-[280px] mx-auto h-96 bg-white top-24 absolute right-0 z-50 overflow-y-scroll shadow-2xl cursor-pointer`}
+                          >
+                            {searchQuery &&
+                              filteredProducts.map((item) => (
+                                <div
+                                  onClick={() =>
+                                    navigate(
+                                      `/product/${item._id}`,
+                                      {
+                                        state: {
+                                          item: item,
+                                        },
+                                      }
+                                    ) &
+                                    setShowSearchBar(true) &
+                                    setSidenav(false)&
+                                    setSearchQuery("")
+                                  }
+                                  key={item._id}
+                                  className="max-w-[250px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
+                                >
+                                  <img
+                                    className="w-24"
+                                    src={item.img}
+                                    alt="productImg"
+                                  />
+                                  <div className="flex flex-col gap-1">
+                                    <p className="font-semibold text-lg">
+                                      {item.productName}
+                                    </p>
+                                    <p className="text-sm">
+                                      قیمت:{" "}
+                                      <span className="text-primeColor font-semibold">
+                                        {item.price}{" "}تومان
+                                      </span>
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                          </div>
+                        )}
                       </div>
                       <div className="flex gap-4 mt-4 items-center cursor-pointer relative">
                         <div
